@@ -29,13 +29,13 @@
             }
             else
             {
-                echo $year . " is not a leap year";
+                echo $year . " is a standard year";
                 return false;
             }
         }
         else
         {
-            echo $year . " is not a leap year";
+            echo $year . " is a standard year";
             return false;
         }
     }
@@ -43,6 +43,8 @@
     echo "\n";
     echo $test;
     ?>
+    <br>1 = true
+    <br>nothing = false
 </body>
 
 </html>
