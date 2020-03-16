@@ -7,10 +7,10 @@
 <body>
     <h1>Web Development Lab 3</h1>
     <?php
-        if (isset ($_POST["1"]))
+        if (isset ($_POST["letters"])) // Check if form data exists
         {
-            $str = $_POST["2"];
-            $pattern = "/^[A-Za-z ]+$/";
+            $str = $_POST["letters"]; // Obtain form data
+            $pattern = "/^[A-Za-z ]+$/"; // Set regular expression pattern
             if (preg_match($pattern, $str))
             {
                 $ans = "";
