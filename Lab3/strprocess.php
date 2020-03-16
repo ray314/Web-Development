@@ -7,7 +7,7 @@
 <body>
     <h1>Web Development Lab 3</h1>
     <?php
-        if (isset ($_POST["letters"])) // Check if form data exists
+        if (isset ($_POST['letters'])) // Check if form data exists
         {
             $str = $_POST["letters"]; // Obtain form data
             $pattern = "/^[A-Za-z ]+$/"; // Set regular expression pattern
@@ -15,15 +15,16 @@
             {
                 $ans = "";
                 $len = strlen($str);
-                for ($i = 0; $i < $len; $i++)
+                
+                for ($i = 0;$i < $len; $i++)
                 {
-                    $letter = substr($str, i, 1);
-                    if (!is_numeric(strpos("AEIOUaeiou", $str)))
+                    $letter = substr($str, $i, 1);
+                    if (!is_numeric(strpos("AEIOUaeiou", $letter)))
                     {
                         $ans = $ans . $letter;
                     }
                 }
-                echo "<p>The world with no vowels is ", $ans, ".</p>";
+                echo "<p>The word with no vowels is ", $ans, ".</p>";
             } else {
                 echo "<p>Please enter a string containing only letters or space.</p>";
                 }
