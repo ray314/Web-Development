@@ -12,15 +12,21 @@
             <h1>Status Posting System</h1>
             <form action="poststatusprocess.php">
                 <div class="form-inline">
-                    <label for="statuscode">Status Code (required):</label>
+                    <label for="statuscode" class="pr-2">Status Code (required):</label>
                     <input type="text" class="form-control" placeholder="Enter code" id="statuscode">
                 </div>
                 <br>
                 <div class="form-inline">
-                    <label for="status">Status (required):</label>
+                    <label for="status" class="pr-5">Status (required):</label>
                     <input type="text" class="form-control" placeholder="Enter status" id="status">
                 </div>
-
+                <br>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="publicrad">
+                        Public
+                    </label>
+                </div>
 
                 
             </form>
