@@ -13,6 +13,7 @@
             <form class="form-inline" action="poststatusprocess.php">
                 <label for="statuscode">Status Code (required)</label>
                 <input type="text" class="form-control" placeholder="Enter code" id="statuscode">
+                <br>
                 <label for="status">Status (required)</label>
                 <input type="text" class="form-control" placeholder="Enter status" id="status">
                 <br>
