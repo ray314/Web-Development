@@ -10,13 +10,18 @@
     <body> 
         <div class="container pt-3">
             <h1>Status Posting System</h1>
-            <form class="form-inline" action="poststatusprocess.php">
-                <label for="statuscode">Status Code (required)</label>
-                <input type="text" class="form-control" placeholder="Enter code" id="statuscode">
+            <form action="poststatusprocess.php">
+                <div class="form-inline">
+                    <label for="statuscode">Status Code (required):</label>
+                    <input type="text" class="form-control" placeholder="Enter code" id="statuscode">
+                </div>
                 <br>
-                <label for="status">Status (required)</label>
-                <input type="text" class="form-control" placeholder="Enter status" id="status">
-                <br>
+                <div class="form-inline">
+                    <label for="status">Status (required):</label>
+                    <input type="text" class="form-control" placeholder="Enter status" id="status">
+                </div>
+
+
                 
             </form>
 
