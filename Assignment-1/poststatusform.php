@@ -10,34 +10,27 @@
     <body> 
         <div class="container pt-3">
             <h1>Status Posting System</h1>
-            <form action="poststatusprocess.php">
+            <form action="poststatusprocess.php" method="POST">
                 <div class="form-inline">
                     <label for="statuscode" class="pr-2">Status Code (required):</label>
-                    <input type="text" class="form-control" placeholder="Enter code" id="statuscode">
+                    <input type="text" class="form-control" name="statuscode">
                 </div>
                 <br>
                 <div class="form-inline">
                     <label for="status" class="pr-5">Status (required):</label>
-                    <input type="text" class="form-control" placeholder="Enter status" id="status">
+                    <input type="text" class="form-control" name="status">
                 </div>
                 <br>
 
-                <label class="form-check-label">Share:</label>
+                <label class="form-check-label pr-3">Share:</label>
                 <div class="form-check-inline">
-                    <label class="form-check-label pl-3">
-                       <input type="radio" class="form-check-input" name="optionrad" checked id="public">
-                       Public
-                    </label>
+                    <input type="radio" class="form-check-input" name="optionrad" checked value="Public">Public
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label pl-3"><input type="radio" class="form-check-input" name="optionrad" id="friends">
-                      Friends
-                    </label>
+                    <input type="radio" class="form-check-input" name="optionrad" value="Friends">Friends
                 </div>
                 <div class="form-check-inline">
-                    <label class="form-check-label pl-3"><input type="radio" class="form-check-input" name="optionrad" id="private">
-                         Only Me
-                    </label>
+                    <input type="radio" class="form-check-input" name="optionrad" value="Only Me">Only Me
                 </div>
 
                 <br><br>
@@ -69,11 +62,12 @@
                 </div>
 
                 <br>
-                <a href="https://google.com" class="btn btn-info" role="button">Post</a>
-                <input type="button" class="btn btn-danger" value="Reset">
+                <input type="submit" class="btn btn-info" onclick="this.blur();" role="button" value="Post">
+                <input type="reset" class="btn btn-danger" onclick="this.blur();" value="Reset">
 
             </form>
-
+            <br>
+            <a href="index.html">Return to home page</a>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
