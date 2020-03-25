@@ -21,14 +21,48 @@
                     <input type="text" class="form-control" placeholder="Enter status" id="status">
                 </div>
                 <br>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="publicrad">
-                        Public
+
+                <label class="form-check-label">Share:</label>
+                <div class="form-check-inline">
+                    <label class="form-check-label pl-3">
+                       <input type="radio" class="form-check-input" name="optionrad" checked id="public">
+                       Public
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label pl-3"><input type="radio" class="form-check-input" name="optionrad" id="friends">
+                      Friends
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label pl-3"><input type="radio" class="form-check-input" name="optionrad" id="private">
+                         Only Me
                     </label>
                 </div>
 
+                <br><br>
+                <div class="form-check-inline">
+                    <label class="form-check-label pr-3">Date:</label>
+                    <input type="date" class="form-check-input" id="date">
+                </div>
                 
+                <br><br>
+                <div class="form-check-inline">
+                    <label class="form-check-label">Permission Type:
+                        <input type="checkbox" class="form-check-input" id="like">Allow Like
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">Permission Type:
+                        <input type="checkbox" class="form-check-input" id="comment">Allow Comment
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">Permission Type:
+                        <input type="checkbox" class="form-check-input" id="share">Allow Share
+                    </label>
+                </div>
+
             </form>
 
         </div>
