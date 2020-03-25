@@ -42,26 +42,35 @@
 
                 <br><br>
                 <div class="form-check-inline">
-                    <label class="form-check-label pr-3">Date:</label>
+                    <label class="form-check-label">Date:</label>
+                </div>
+                <div class="form-check-inline">
                     <input type="date" class="form-check-input" id="date">
                 </div>
                 
                 <br><br>
                 <div class="form-check-inline">
-                    <label class="form-check-label">Permission Type:
+                    <label class="form-check-label pr-3">Permission Type:
+                    </label>
+                </div>
+                <div class="form-check-inline">
                         <input type="checkbox" class="form-check-input" id="like">Allow Like
                     </label>
                 </div>
-                <div class="form-check">
-                    <label class="form-check-label">Permission Type:
+                <div class="form-check-inline">
+                    <label class="form-check-label">
                         <input type="checkbox" class="form-check-input" id="comment">Allow Comment
                     </label>
                 </div>
-                <div class="form-check">
-                    <label class="form-check-label">Permission Type:
+                <div class="form-check-inline">
+                    <label class="form-check-label">
                         <input type="checkbox" class="form-check-input" id="share">Allow Share
                     </label>
                 </div>
+
+                <br>
+                <a href="https://google.com" class="btn btn-info" role="button">Post</a>
+                <input type="button" class="btn btn-danger" value="Reset">
 
             </form>
 
