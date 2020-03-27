@@ -53,17 +53,17 @@
                     </label>
                 </div>
                 <div class="form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="like">Allow Like
+                        <input type="checkbox" class="form-check-input" value="like">Allow Like
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="comment">Allow Comment
+                        <input type="checkbox" class="form-check-input" value="comment">Allow Comment
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" id="share">Allow Share
+                        <input type="checkbox" class="form-check-input" value="share">Allow Share
                     </label>
                 </div>
 

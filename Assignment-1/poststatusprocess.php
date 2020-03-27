@@ -13,10 +13,12 @@
             <?php
             $status_code = $_POST["statuscode"]; // Status code
             $status = $_POST["status"]; // Status
+            $date = $_POST["date"];
             // Variables for connecting to mysql
             $servername = "localhost";
             $username = "root";
             $password = "";
+            $dbname = "status_posting_system";
 
             // Create connection
             $conn = new mysqli($servername, $username, $password);
@@ -41,6 +43,14 @@
                     case "Only Me":
                         echo "Only Me selected";
                 } 
+                $sql = "INSERT INTO status (Status_Code, Status, Share, Date, Permission_Type)
+                        VALUES (" . $status_code . ", " . $status . ", " . "'Test'" . ", " . $date . ", " . $optionrad . ")";
+                
+                if ($conn->query($sql) === TRUE) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
             }
             ?>
             <br><br>
