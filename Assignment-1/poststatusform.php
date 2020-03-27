@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <title>Status Form</title>
+
+        <style>
+            .status-pad {
+                padding-right: 57px;
+            }
+        </style>
     </head>
 
     <body> 
@@ -12,12 +18,12 @@
             <h1>Status Posting System</h1>
             <form action="poststatusprocess.php" method="POST">
                 <div class="form-inline">
-                    <label for="statuscode" class="pr-2">Status Code (required):</label>
+                    <label for="statuscode" class="pr-3">Status Code (required):</label>
                     <input type="text" class="form-control" name="statuscode">
                 </div>
                 <br>
                 <div class="form-inline">
-                    <label for="status" class="pr-5">Status (required):</label>
+                    <label for="status" class="status-pad">Status (required):</label>
                     <input type="text" class="form-control" name="status">
                 </div>
                 <br>
