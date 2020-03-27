@@ -12,8 +12,10 @@
             <h1>Processing Status</h1>
             <?php
             $status_code = $_POST["statuscode"]; // Status code
-            $status = $_POST["status"]; // Status
+            $status = "'" . $_POST["status"] . "'"; // Status
             $date = $_POST["date"];
+            $optionrad = "'" . $_POST["optionrad"] . "'";
+            $checkbox = "'" . $_POST["checkbox"] . "'";
             // Variables for connecting to mysql
             $servername = "localhost";
             $username = "root";
@@ -21,7 +23,7 @@
             $dbname = "status_posting_system";
 
             // Create connection
-            $conn = new mysqli($servername, $username, $password);
+            $conn = new mysqli($servername, $username, $password, $dbname);
 
             // Check connection
             if ($conn->connect_error) {
@@ -32,19 +34,10 @@
             if ((!isset($status_code) && !isset($status)) && $status_code == "" || $status == "") {
                 echo "Status code or status cannot be empty";
             } else {
-                $optionrad = $_POST["optionrad"];
-                switch ($optionrad) {
-                    case "Public":
-                        echo "Public checked";
-                    break;
-                    case "Friends":
-                        echo "Friends selected";
-                    break;
-                    case "Only Me":
-                        echo "Only Me selected";
-                } 
+                
+
                 $sql = "INSERT INTO status (Status_Code, Status, Share, Date, Permission_Type)
-                        VALUES (" . $status_code . ", " . $status . ", " . "'Test'" . ", " . $date . ", " . $optionrad . ")";
+                        VALUES (" . $status_code . ", " . $status . ", " . $checkbox . ", " . $date . ", " . $optionrad . ")";
                 
                 if ($conn->query($sql) === TRUE) {
                     echo "New record created successfully";
