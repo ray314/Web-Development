@@ -9,20 +9,44 @@
 
     <body>
         <div class="container pt-3">
-            <h1>Status Information</h1>
+            <?php
+            $status = $_GET["status"];
+            $username = "root";
+            $password = "";
+            $servername = "localhost";
+            $dbname = "status_posting_system";
 
-            <label>Status:</label>
-            <br>
-            <label>Status code:</label>
-            <br><br>
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
 
-            <label>Share:</label>
-            <br>
-            <label>Date Posted:</label>
-            <br>
-            <label>Permission:</label>
-            <br><br>
+            // Check connection
+            if ($conn->connect_error) {
+                die ("Connection failed: " . $conn->connect_error);
+            } else {
+                $sql = "SELECT Status_Code, Status, Share, Date, Permission_Type FROM status
+                        WHERE Status = '" . $status . "'";
+                $result = $conn->query($sql);
 
+                if ($result->num_rows > 0) {
+                    echo "
+                    <h1>Status Information</h1>
+    
+                    <label>Status: " . $result["Status"] . "</label>
+                    <br>
+                    <label>Status code: " . $result["Status_Code"] . "</label>
+                    <br><br>
+        
+                    <label>Share: " . $result["Share"] . "</label>
+                    <br>
+                    <label>Date Posted: " . $result["Date"] . "</label>
+                    <br>
+                    <label>Permission: " . $result["Permission_Type"] . "</label>
+                    <br><br>";
+                } else {
+                    echo "0 results";
+                }
+            }
+            ?>
             <a href="searchstatusform.html">Search for another status</a>
             <a href="index.html" class="float-right">Return to Home Page</a>
         </div>
