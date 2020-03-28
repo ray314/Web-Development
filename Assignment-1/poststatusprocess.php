@@ -23,14 +23,14 @@
             $dbname = "status_posting_system";
 
             $permissions = "";
-            if (empty($checkbox)) {
+            if (!isset($checkbox)) {
                 echo "No permissions were selected";
             } else {
-                foreach ($checkbox as $selected) {
-                    $permissions += $selected; // Format the permissions
-                    echo $selected;
-                    $permissions += ", "; // Concatenate commas and spaces
-                }
+                for ($i = 0; $i < count($checkbox); $i++) {
+                    $permissions .= $checkbox[$i]; // Format the permissions
+                    if ($i < count($checkbox) - 1) 
+                        $permissions .= ", "; // Concatenate commas and spaces
+                }   // Don't add another comma when at the end
             }
             
 
