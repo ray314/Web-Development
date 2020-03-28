@@ -44,7 +44,7 @@
                     <label class="form-check-label">Date:</label>
                 </div>
                 <div class="form-check-inline">
-                    <input type="date" class="form-check-input" name="date">
+                    <input type="date" class="form-check-input" id="date" name="date">
                 </div>
                 
                 <br><br>
@@ -53,17 +53,17 @@
                     </label>
                 </div>
                 <div class="form-check-inline">
-                        <input type="checkbox" class="form-check-input" name="checkbox" value="Allow Like">Allow Like
+                        <input type="checkbox" class="form-check-input" name="checkbox[]" value="Allow Like">Allow Like
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="checkbox" value="Allow Comment">Allow Comment
+                        <input type="checkbox" class="form-check-input" name="checkbox[]" value="Allow Comment">Allow Comment
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="checkbox" value="Allow Share">Allow Share
+                        <input type="checkbox" class="form-check-input" name="checkbox[]" value="Allow Share">Allow Share
                     </label>
                 </div>
 

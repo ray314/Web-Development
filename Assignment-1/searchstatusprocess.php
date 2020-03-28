@@ -28,19 +28,21 @@
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $date = date_create($row["Date"]); // Format the date
                     echo "
                     <h1>Status Information</h1>
     
-                    <label>Status: " . $result["Status"] . "</label>
+                    <label>Status: " . $row["Status"] . "</label>
                     <br>
-                    <label>Status code: " . $result["Status_Code"] . "</label>
+                    <label>Status code: " . $row["Status_Code"] . "</label>
                     <br><br>
         
-                    <label>Share: " . $result["Share"] . "</label>
+                    <label>Share: " . $row["Share"] . "</label>
                     <br>
-                    <label>Date Posted: " . $result["Date"] . "</label>
+                    <label>Date Posted: " . $row["Date"] . date_format($date, "F d, y") . "</label>
                     <br>
-                    <label>Permission: " . $result["Permission_Type"] . "</label>
+                    <label>Permission: " . $row["Permission_Type"] . "</label>
                     <br><br>";
                 } else {
                     echo "0 results";

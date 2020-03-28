@@ -15,12 +15,24 @@
             $status = "'" . $_POST["status"] . "'"; // Status
             $date = $_POST["date"];
             $optionrad = "'" . $_POST["optionrad"] . "'";
-            $checkbox = "'" . $_POST["checkbox"] . "'";
+            $checkbox = $_POST["checkbox"];
             // Variables for connecting to mysql
             $servername = "localhost";
             $username = "root";
             $password = "";
             $dbname = "status_posting_system";
+
+            $permissions = "";
+            if (empty($checkbox)) {
+                echo "No permissions were selected";
+            } else {
+                foreach ($checkbox as $selected) {
+                    $permissions += $selected; // Format the permissions
+                    echo $selected;
+                    $permissions += ", "; // Concatenate commas and spaces
+                }
+            }
+            
 
             // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname);
@@ -33,13 +45,11 @@
             echo "<br>";
             if ((!isset($status_code) && !isset($status)) && $status_code == "" || $status == "") {
                 echo "Status code or status cannot be empty";
-            } else {
-                
-
+            } else { // Create SQL statement
                 $sql = "INSERT INTO status (Status_Code, Status, Share, Date, Permission_Type)
-                        VALUES (" . $status_code . ", " . $status . ", " . $checkbox . ", " . $date . ", " . $optionrad . ")";
+                        VALUES (" . $status_code . ", " . $status . ", '" . $permissions . "', '" . $date . "', " . $optionrad . ")";
                 
-                if ($conn->query($sql) === TRUE) {
+                if ($conn->query($sql) === TRUE) { // Execute query and check if record created
                     echo "New record created successfully";
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
