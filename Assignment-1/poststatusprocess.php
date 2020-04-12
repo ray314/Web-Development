@@ -17,10 +17,10 @@
             $optionrad = "'" . $_POST["optionrad"] . "'";
             $checkbox = $_POST["checkbox"];
             // Variables for connecting to mysql
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "status_posting_system";
+            $servername = "16946889.cmslamp14.aut.ac.nz";
+            $username = "fbb3628";
+            $password = "sh6ch7R5";
+            $dbname = "fbb3628";
 
             $permissions = "";
             if (!isset($checkbox)) {

@@ -16,15 +16,17 @@
     <body> 
         <div class="container pt-3">
             <h1>Status Posting System</h1>
-            <form action="poststatusprocess.php" method="POST">
+            <form action="poststatusprocess.php" method="POST" class="was-validated">
                 <div class="form-inline">
                     <label for="statuscode" class="pr-3">Status Code (required):</label>
-                    <input type="text" class="form-control" name="statuscode">
+                    <input type="text" class="form-control" pattern="^[S0-9]{5}$" name="statuscode" required>
+                    <div class="invalid-feedback">Please fill out this field. Format: S0000, where 0's are numbers 0-9</div>
                 </div>
                 <br>
                 <div class="form-inline">
                     <label for="status" class="status-pad">Status (required):</label>
-                    <input type="text" class="form-control" name="status">
+                    <input type="text" class="form-control" name="status" required>
+                    <div class="invalid-feedback">Please fill out this field. Must not contain special characters or symbols.</div>
                 </div>
                 <br>
 
@@ -44,7 +46,8 @@
                     <label class="form-check-label">Date:</label>
                 </div>
                 <div class="form-check-inline">
-                    <input type="date" class="form-check-input" id="date" name="date">
+                    <input type="date" class="form-check-input" id="date" name="date" required>
+                    <div class="invalid-feedback">Please select a date.</div>
                 </div>
                 
                 <br><br>

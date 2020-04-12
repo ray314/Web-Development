@@ -11,10 +11,10 @@
         <div class="container pt-3">
             <?php
             $status = $_GET["status"];
-            $username = "root";
-            $password = "";
-            $servername = "localhost";
-            $dbname = "status_posting_system";
+            $username = "fbb3628";
+            $password = "sh6ch7R5";
+            $servername = "16946889.cmslamp14.aut.ac.nz";
+            $dbname = "fbb3628";
 
             // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname);
