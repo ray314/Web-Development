@@ -24,7 +24,7 @@
 
             $permissions = "";
             if (!isset($checkbox)) {
-                echo "No permissions were selected";
+                //echo "No permissions were selected";
             } else {
                 for ($i = 0; $i < count($checkbox); $i++) {
                     $permissions .= $checkbox[$i]; // Format the permissions

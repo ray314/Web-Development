@@ -16,7 +16,7 @@
     <body> 
         <div class="container pt-3">
             <h1>Status Posting System</h1>
-            <form action="poststatusprocess.php" method="POST" class="was-validated">
+            <form action="poststatusprocess.php" method="POST" class="needs-validation" novalidate>
                 <div class="form-inline">
                     <label for="statuscode" class="pr-3">Status Code (required):</label>
                     <input type="text" class="form-control" pattern="^[S0-9]{5}$" name="statuscode" required>
@@ -79,6 +79,30 @@
             <a href="index.html">Return to home page</a>
         </div>
 
+        <script>
+        // Disable form submissions if there are invalid fields
+        (function() {
+         'use strict';
+          window.addEventListener('load', function() {
+        // Get the forms we want to add validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('input', function() {
+                form.classList.add('was-validated');
+            });
+
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+                }, false);
+            });
+          }, false);
+        })();
+        </script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
