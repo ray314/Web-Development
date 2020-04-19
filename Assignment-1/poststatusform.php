@@ -17,19 +17,21 @@
         <div class="container pt-3">
             <h1>Status Posting System</h1>
             <form action="poststatusprocess.php" method="POST" class="needs-validation" novalidate>
+                <!-- Status Code -->
                 <div class="form-inline">
                     <label for="statuscode" class="pr-3">Status Code (required):</label>
-                    <input type="text" class="form-control" pattern="^[S0-9]{5}$" name="statuscode" required>
-                    <div class="invalid-feedback">Please fill out this field. Format: S0000, where 0's are numbers 0-9</div>
+                    <input type="text" class="form-control" pattern="^[S0-9]{5}$" name="statuscode" id="statuscode" required>
+                    <div class="invalid-feedback">First letter must be a S followed by four digits 0-9</div>
                 </div>
                 <br>
+                <!-- Status -->
                 <div class="form-inline">
                     <label for="status" class="status-pad">Status (required):</label>
-                    <input type="text" class="form-control" name="status" required>
-                    <div class="invalid-feedback">Please fill out this field. Must not contain special characters or symbols.</div>
+                    <input type="text" class="form-control" pattern="[A-Za-z0-9 ]+" name="status" required>
+                    <div class="invalid-feedback">Your Status must not contain special characters or symbols</div>
                 </div>
                 <br>
-
+                <!-- Share -->
                 <label class="form-check-label pr-3">Share:</label>
                 <div class="form-check-inline">
                     <input type="radio" class="form-check-input" name="optionrad" checked value="Public">Public
@@ -40,7 +42,7 @@
                 <div class="form-check-inline">
                     <input type="radio" class="form-check-input" name="optionrad" value="Only Me">Only Me
                 </div>
-
+                <!-- Date -->
                 <br><br>
                 <div class="form-check-inline">
                     <label class="form-check-label">Date:</label>
@@ -49,7 +51,7 @@
                     <input type="date" class="form-check-input" id="date" name="date" required>
                     <div class="invalid-feedback">Please select a date.</div>
                 </div>
-                
+                <!-- Permission Type -->
                 <br><br>
                 <div class="form-check-inline">
                     <label class="form-check-label pr-3">Permission Type:
@@ -79,6 +81,7 @@
             <a href="index.html">Return to home page</a>
         </div>
 
+        <!-- JavaScript -->
         <script>
         // Disable form submissions if there are invalid fields
         (function() {
@@ -88,10 +91,6 @@
         var forms = document.getElementsByClassName('needs-validation');
         // Loop over them and prevent submission
         var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('input', function() {
-                form.classList.add('was-validated');
-            });
-
             form.addEventListener('submit', function(event) {
                 if (form.checkValidity() === false) {
                     event.preventDefault();

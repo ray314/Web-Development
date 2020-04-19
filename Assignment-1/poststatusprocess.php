@@ -11,7 +11,7 @@
         <div class="container">
             <h1>Processing Status</h1>
             <?php
-            $status_code = $_POST["statuscode"]; // Status code
+            $status_code = "'" . $_POST["statuscode"] . "'"; // Status code
             $status = "'" . $_POST["status"] . "'"; // Status
             $date = $_POST["date"];
             $optionrad = "'" . $_POST["optionrad"] . "'";
@@ -23,15 +23,6 @@
             $dbname = "fbb3628";
 
             $permissions = "";
-            if (!isset($checkbox)) {
-                //echo "No permissions were selected";
-            } else {
-                for ($i = 0; $i < count($checkbox); $i++) {
-                    $permissions .= $checkbox[$i]; // Format the permissions
-                    if ($i < count($checkbox) - 1) 
-                        $permissions .= ", "; // Concatenate commas and spaces
-                }   // Don't add another comma when at the end
-            }
             
 
             // Create connection
@@ -43,9 +34,20 @@
             }
             echo "Connected successfully";
             echo "<br>";
+
+            
+
             if ((!isset($status_code) && !isset($status)) && $status_code == "" || $status == "") {
                 echo "Status code or status cannot be empty";
             } else { // Create SQL statement
+                // Check if status code has already been taken
+                $sql = "SELECT * FROM status WHERE Status_Code = $status_code";
+                $result = $conn->query($sql);
+                echo $conn->error;
+                if (mysqli_num_rows($result) > 0) {
+                    die("Sorry, this Status Code '$status_code' has already been taken. Please choose another code.");
+                }
+
                 $sql = "INSERT INTO status (Status_Code, Status, Share, Date, Permission_Type)
                         VALUES (" . $status_code . ", " . $status . ", '" . $permissions . "', '" . $date . "', " . $optionrad . ")";
                 
@@ -57,6 +59,8 @@
             }
             ?>
             <br><br>
+            <a href="poststatusform.php">Post another status</a>
+            <br>
             <a href="index.html">Return to home page</a>
         </div>
         

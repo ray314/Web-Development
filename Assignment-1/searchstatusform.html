@@ -11,10 +11,10 @@
         <div class="container pt-3">
             <h1>Status Posting System</h1>
 
-            <form action="searchstatusprocess.php" method="GET">
+            <form action="searchstatusprocess.php" method="GET" class="needs-validation" novalidate>
                 <div class="form-inline mt-5">
                     <label class="mr-3">Status:</label>
-                    <input type="text" class="form-control mr-3" name="status">
+                    <input type="text" class="form-control mr-3" name="status" required>
                     <input type="submit" class="btn btn-primary">
                 </div>
             </form>
@@ -22,6 +22,27 @@
             <a href="index.html">Return to home page</a>
         </div>
 
+        <!-- JavaScript -->
+        <script>
+            // Disable form submissions if there are invalid fields
+            (function() {
+             'use strict';
+              window.addEventListener('load', function() {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                    }, false);
+                });
+              }, false);
+            })();
+            </script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
