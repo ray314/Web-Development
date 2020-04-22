@@ -11,19 +11,25 @@
         <div class="container">
             <h1>Processing Status</h1>
             <?php
-            $status_code = "'" . $_POST["statuscode"] . "'"; // Status code
-            $status = "'" . $_POST["status"] . "'"; // Status
+            require_once("../../config/info.php");
+
+            $status_code = $_POST["statuscode"]; // Status code
+            $status = $_POST["status"]; // Status
             $date = $_POST["date"];
-            $optionrad = "'" . $_POST["optionrad"] . "'";
+            $optionrad = $_POST["optionrad"];
             $checkbox = $_POST["checkbox"];
-            // Variables for connecting to mysql
-            $servername = "16946889.cmslamp14.aut.ac.nz";
-            $username = "fbb3628";
-            $password = "sh6ch7R5";
-            $dbname = "fbb3628";
 
             $permissions = "";
-            
+            if (!isset($checkbox)) {
+                echo "No permissions were selected";
+            } else {
+                for ($i = 0; $i < count($checkbox); $i++) {
+                    $permissions .= $checkbox[$i]; // Format the permissions
+                    if ($i < count($checkbox) - 1) 
+                        $permissions .= ", "; // Concatenate commas and spaces
+                }   // Don't add another comma when at the end
+            }
+            $permissions = ucfirst($permissions);
 
             // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname);
@@ -41,21 +47,21 @@
                 echo "Status code or status cannot be empty";
             } else { // Create SQL statement
                 // Check if status code has already been taken
-                $sql = "SELECT * FROM status WHERE Status_Code = $status_code";
+                $sql = "SELECT * FROM status WHERE Status_Code = '$status_code'";
                 $result = $conn->query($sql);
                 echo $conn->error;
                 if (mysqli_num_rows($result) > 0) {
-                    die("Sorry, this Status Code '$status_code' has already been taken. Please choose another code.");
-                }
-
-                $sql = "INSERT INTO status (Status_Code, Status, Share, Date, Permission_Type)
-                        VALUES (" . $status_code . ", " . $status . ", '" . $permissions . "', '" . $date . "', " . $optionrad . ")";
-                
-                if ($conn->query($sql) === TRUE) { // Execute query and check if record created
-                    echo "New record created successfully";
+                    echo "Sorry, this Status Code '$status_code' has already been taken. Please choose another code.";
                 } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+                    $sql = "INSERT INTO status (Status_Code, Status, Share, Date, Permission_Type)
+                    VALUES ('$status_code', '$status', '$optionrad', '$date', '$permissions')";
+            
+                    if ($conn->query($sql) === TRUE) { // Execute query and check if record created
+                        echo "New record created successfully";
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                }  
             }
             ?>
             <br><br>

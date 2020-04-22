@@ -9,12 +9,10 @@
 
     <body>
         <div class="container pt-3">
+            <h1>Status Information</h1>
             <?php
+            require_once("../../config/info.php"); // Get info from another file
             $status = $_GET["status"];
-            $username = "fbb3628";
-            $password = "sh6ch7R5";
-            $servername = "16946889.cmslamp14.aut.ac.nz";
-            $dbname = "fbb3628";
 
             // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname);
@@ -28,22 +26,24 @@
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
-                    $date = date_create($row["Date"]); // Format the date
-                    echo "
-                    <h1>Status Information</h1>
-    
-                    <label>Status: " . $row["Status"] . "</label>
-                    <br>
-                    <label>Status code: " . $row["Status_Code"] . "</label>
-                    <br><br>
+                    //$row = $result->fetch_assoc();
+                    while ($row = $result->fetch_assoc()) {
+                        $date = date_create($row["Date"]); // Format the date
+                        echo "
         
-                    <label>Share: " . $row["Share"] . "</label>
-                    <br>
-                    <label>Date Posted: " . $row["Date"] . date_format($date, "F d, y") . "</label>
-                    <br>
-                    <label>Permission: " . $row["Permission_Type"] . "</label>
-                    <br><br>";
+                        <label>Status: " . $row["Status"] . "</label>
+                        <br>
+                        <label>Status code: " . $row["Status_Code"] . "</label>
+                        <br><br>
+            
+                        <label>Share: " . $row["Share"] . "</label>
+                        <br>
+                        <label>Date Posted: " . date_format($date, "F d, Y") . "</label>
+                        <br>
+                        <label>Permission: " . $row["Permission_Type"] . "</label>
+                        <br>-----------------------------------------------------------------------<br>";
+                    }
+                    
                 } else {
                     echo "0 results";
                 }

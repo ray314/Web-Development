@@ -58,17 +58,17 @@
                     </label>
                 </div>
                 <div class="form-check-inline">
-                        <input type="checkbox" class="form-check-input" name="checkbox[]" value="Allow Like">Allow Like
+                        <input type="checkbox" class="form-check-input" name="checkbox[]" value="allow like">Allow Like
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="checkbox[]" value="Allow Comment">Allow Comment
+                        <input type="checkbox" class="form-check-input" name="checkbox[]" value="allow comment">Allow Comment
                     </label>
                 </div>
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="checkbox[]" value="Allow Share">Allow Share
+                        <input type="checkbox" class="form-check-input" name="checkbox[]" value="allow share">Allow Share
                     </label>
                 </div>
 
