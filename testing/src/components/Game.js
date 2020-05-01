@@ -1,3 +1,5 @@
+import Board from "./Board";
+
 class Game extends React.Component {
     render() {
         return (
