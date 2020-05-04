@@ -17,23 +17,23 @@
             <form action="member_add.php" method="POST">
                 <div class="form-group">
                     <label for="fname">First Name:</label>
-                    <input type="text" class="form-control" id="fname">
+                    <input type="text" class="form-control" name="fname">
                 </div>
                 <div class="form-group">
                     <label for="lname">Last Name:</label>
-                    <input type="text" class="form-control" id="lname">
+                    <input type="text" class="form-control" name="lname">
                 </div>
                 <div class="form-group">
                     <label for="gender">Gender:</label>
-                    <input type="text" class="form-control" id="gender">
+                    <input type="text" class="form-control" name="gender">
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email">
+                    <input type="email" class="form-control" name="email">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone:</label>
-                    <input type="text" class="form-control" id="phone">
+                    <input type="text" class="form-control" name="phone">
                 </div>
                 <button type="submit" class="btn btn-primary mb-2">Submit</button>
             </form>

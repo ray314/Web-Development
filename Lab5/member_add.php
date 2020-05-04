@@ -34,7 +34,7 @@
 
                 // Create SQL statement
                 $sql = "INSERT INTO vipmember (fname, lname, gender, email, phone) 
-                VALUES ('$fname', '$lname', '$gender', '$email', '$phone'";
+                VALUES ('$fname', '$lname', '$gender', '$email', '$phone')";
 
                 if ($conn->query($sql) === TRUE) { // Execute query and check if record created
                     echo "New record created successfully";
@@ -44,6 +44,8 @@
                 // Close connection when done
                 $conn->close();
             ?>
+            <br>
+            <a href="vip_member.php">Home Page</a>
         </body>
     </div>
     
