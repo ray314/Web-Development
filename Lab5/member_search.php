@@ -12,18 +12,12 @@
     <div class="container mt-2">
     <body>
         <h1 class="mb-3">Web Development - Lab05</h1>
-        <form action="member_search.php" class="form-control" method="GET">
-            <div class="form-group">
-                <label>Last Name:</label>
-                <input type="text" name="lname" required>
-            </div>
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-        </form>
 
+        <?php if (!empty($_POST)): ?>
         <?php
             require_once("../../config/info.php");
 
-            $lname = $_GET["lname"];
+            $lname = $_POST["lname"];
 
             $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -59,6 +53,15 @@
             $conn->close();
 
         ?>
+        <?php else: ?>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                <div class="form-group">
+                    <label>Last Name:</label>
+                    <input type="text" class="form-control" name="lname" required>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </form>
+        <?php endif; ?>
     </body>
 </div>
 </html>
