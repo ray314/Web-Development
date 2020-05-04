@@ -26,7 +26,7 @@
             }
 
             $sql = "SELECT member_id, fname, lname, email FROM vipmember
-                    WHERE lname = $lname";
+                    WHERE lname = '$lname'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -51,7 +51,7 @@
                 echo "0 results";
             }
             $conn->close();
-
+            echo "<a href='member_search.php'>Search again</a>";
         ?>
         <?php else: ?>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
@@ -62,6 +62,9 @@
                 <button type="submit" class="btn btn-primary mb-2">Submit</button>
             </form>
         <?php endif; ?>
+
+        <br>
+        <a href="vip_member.php">Home Page</a>
     </body>
 </div>
 </html>
