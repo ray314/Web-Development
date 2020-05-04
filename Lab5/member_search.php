@@ -12,7 +12,7 @@
     <div class="container mt-2">
     <body>
         <h1 class="mb-3">Web Development - Lab05</h1>
-        <form action="member_search.php" class="form-control" method="$_GET">
+        <form action="member_search.php" class="form-control" method="GET">
             <div class="form-group">
                 <label>Last Name:</label>
                 <input type="text" name="lname" required>
