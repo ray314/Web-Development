@@ -17,6 +17,8 @@
 
             <?php
                 require_once("../../config/info.php");
+                
+
                 // Obtain form values
                 $fname = $_POST["fname"];
                 $lname = $_POST["lname"];
@@ -31,6 +33,17 @@
                 if (@$conn->connect_error) {
                     die("Connection failed");
                 }
+
+                $sql = "CREATE TABLE vipmember (
+                    member_id INT NOT NULL AUTO_INCREMENT,
+                    fname VARCHAR(40),
+                    lname VARCHAR(40),
+                    gender VARCHAR(1),
+                    email VARCHAR(40),
+                    phone VARCHAR(20),
+                    PRIMARY KEY (member_id)
+                    ";
+                $conn->query($sql);
 
                 // Create SQL statement
                 $sql = "INSERT INTO vipmember (fname, lname, gender, email, phone) 
