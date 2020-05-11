@@ -28,7 +28,7 @@
             $sql = "SELECT member_id, fname, lname, email FROM vipmember
                     WHERE lname = '$lname'";
             $result = $conn->query($sql);
-
+            
             if ($result->num_rows > 0) {
                 echo "<table class='table table-dark table-hover'>
                         <thead><tr>
