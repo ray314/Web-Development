@@ -8,12 +8,13 @@
   <body>
   <H1>Fetching data with Ajax &nbsp;</H1>
 	<form>
-	    <label>User Name:  <input type="text" name="namefield"> </label>
- 	    <label><br>Password: <input type="text" name="pwdfield"> <br><br> </label>
+	    <label>User Name:  <input type="text" name="namefield"><br></label>
+		 <label><br>Password: <input type="password" name="pwdfield"> <br><br> </label>
+		 
 	    <input name="submit" type = "button" onClick = "getData('data.php','targetDiv', namefield.value, pwdfield.value) " value = "Fetch from server">
 	</form>
 	<div id="targetDiv"> 
-	    <p>The fetched data will go here.</p>  
+	    <p>Please enter your credentials to retrieve your email</p>  
 	</div> 
  </body> 
 </HTML>
