@@ -13,7 +13,6 @@
 
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
         <title>Booking Page</title>
     </head>
 
@@ -43,8 +42,11 @@ and pick-up date/time.
                     <label for="destination-suburb">Destination suburb:</label>
                     <input type="text" class="form-control" id="destination-suburb" required>
 
-                    <label for="date-time">Pick-up date and time:</label>
-                    <input type="datetime-local" class="form-control" id="date-time" min="2000-01-01" required>
+                    <label for="date">Pick-up date:</label>
+                    <input type="date" class="form-control" id="date" min="2000-01-01" required>
+
+                    <label for="time">Pick-up time:</label>
+                    <select id="time"></select>
 
                     <input type="submit" class="btn btn-primary mt-2">
                 </div>
@@ -52,56 +54,6 @@ and pick-up date/time.
             <br>
             <span id="status"></span>
         </div>
-
-        <script>
-            // Set the minimum date to today
-            var today = new Date();
-            var yyyy = today.getFullYear();
-            var mm = today.getMonth()+1;
-            var dd = today.getDate();
-            var hh = today.getHours();
-            var m = today.getMinutes();
-            // Add a 0 before the 2nd digit.
-            if(dd<10){ // Day
-                dd='0'+dd
-            } 
-            if(mm<10){ // Month
-                mm='0'+mm
-            } 
-            if(hh<10){ // Hour
-                hh='0'+hh
-            } 
-            if(m<10){ // Minute
-                m='0'+m
-            } 
-            today = yyyy+'-'+mm+'-'+dd+'T'+hh+':'+m; // eg. 2018-06-12T19:30 
-            console.log(today);
-            document.getElementById("date-time").setAttribute("min", today);
-
-            function submit(e) {
-                e.preventDefault();
-
-                var xhttp = new XMLHttpRequest();
-                var name = document.getElementById("name").value();
-                var phone = document.getElementById("phone").value();
-                var pickup_address = document.getElementById("pickup-address").value();
-                var destination_suburb = document.getElementById("destination-suburb").value();
-                var date_time = document.getElementById("date-time").value();
-
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("status").innerHTML = this.responseText;
-                    }
-                };
-                xhttp.open("POST", "book_process.php", true);
-                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhttp.send("name="+name+"&phone="+phone+"&pickup="+
-                pickup_address+"&dest="+destination_suburb+"&datetime="+date_time);
-
-            }
-
-            var form = document.getElementById("booking");
-            form.addEventListener('submit', submit);
-        </script>
+        <script src="bookingxhr.js"></script>
     </body>
 </html>
