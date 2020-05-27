@@ -10,6 +10,7 @@
 
         <button type="button" onclick="myFunction()">Set background color</button>
         <br><br>
+        <span id="text"></span>
         <script>
             var count;
             for(count = 1; count <= 10; count++) {
@@ -20,6 +21,11 @@
 
             function myFunction() {
                 document.body.style.backgroundColor = "grey";
+
+                var person = prompt("Please enter your name", "Quack");
+                if (person != null) {
+                    document.getElementById("text").innerHTML = "Hello " + person;
+                }
             }
         </script>
     </body>

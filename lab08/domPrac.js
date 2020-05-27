@@ -44,5 +44,6 @@ function appendRow() {
 	newData[1].appendChild(textNode[1]);
 	newRow.appendChild(newData[0]);
 	newRow.appendChild(newData[1]);
+	newRow.bgColor = "orange";
 	table.appendChild(newRow);
 }

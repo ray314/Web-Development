@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Lab 08</title>
+    </head>
+
+    <body>
+        <h1>Using objects</h1>
+
+        <p id = "text"></p>
+        <script>
+            function Person(name, email) {
+                this.name = name;
+                this.email = email;
+                this.print = function() {
+                    var node = document.createTextNode(" Name: " + this.name + " | Email: " + this.email);
+                    document.getElementById("text").appendChild(node);
+                };
+            }
+
+            function Database() {
+                this.records = [];
+                this.add = function(record) {
+                    this.records.push(record);
+                }
+                this.print = function() {
+                    for (var i = 0; i < this.records.length; i++) {
+                        this.records[i].print();
+                    }
+                }
+            }
+            var database = new Database();
+            var person = [
+                new Person("Quack", "www@quack.com"),
+                new Person("Quack2", "www@quack2.com"),
+                new Person("Quack3", "www@quack3.com")
+            ];
+            database.add(person[0]);
+            database.add(person[1]);
+            database.add(person[2]);
+
+            database.print();
+        </script>
+    </body>
+</html>
