@@ -4,9 +4,9 @@ function search() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var obj = JSON.parse(this.responseText);
+            var table = document.getElementById("requestTable");
             for (data in obj) {
-                var node = document.createTextNode(obj[data].Name);
-                document.getElementById("table").appendChild(node);
+                var row = table.insertRow(-1); // Insert at the last position
                 
             }
             console.log(this.responseText);
