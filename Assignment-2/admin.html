@@ -14,12 +14,34 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+        <script src="searchingxhr.js"></script>
         <title>Administrator page</title>
     </head>
 
     <body>
         <div class="container">
-            
+            <h1>Administrator Page</h1>
+
+                <button class="btn btn-primary mt-2" onclick="search()">Search requests</button>
+                <table class="table table-striped" id="requestTable">
+                    <tr>
+                        <th>Booking reference number</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Pick-up Suburb</th>
+                        <th>Destination Suburb</th>
+                        <th>Phone</th>
+                        <th>Pick-up date</th>
+                        <th>Pick-up time</th>
+                    </tr>
+                </table>
+        </div>
+        <br>
+        <div class="container">
+            <div class="form-group">
+                <input type="text" class="form-control" name="referenceNumber">
+                <button class="btn btn-primary mt-2" onclick="assign('referenceNumber.value')">Submit</button>
+            </div>
         </div>
     </body>
 </html>
