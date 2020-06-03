@@ -33,7 +33,7 @@ function AddRemoveItem(action)
 {
     var book  = document.getElementById("book").innerHTML;
            
-	xHRObject.open("GET", "test.php?action="+action+"&book="+"&value="+Number(new Date), true);
+	xHRObject.open("GET", "test.php?action="+action+"&book="+book+"&value="+Number(new Date), true);
     xHRObject.onreadystatechange = getData;
     xHRObject.send();   
 }
