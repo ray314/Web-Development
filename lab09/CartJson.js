@@ -20,9 +20,9 @@ function getData()
 		if (serverResponse != null){
 			
 			var keys = Object.keys(serverResponse);
-			cart.innerHTML = "";
-            cart.innerHTML += "test " +keys[0];
-            cart.innerHTML += "test " + serverResponse[keys[0]] + " " + "<a href='#' onclick='AddRemoveItem(\"Remove\");'>Remove Item</a>";
+			//cart.innerHTML = "";
+            //cart.innerHTML += "test " +keys[0];
+            cart.innerHTML = "test " + serverResponse[keys[0]] + " " + "<a href='#' onclick='AddRemoveItem(\"Remove\");'>Remove Item</a>";
         
         }
         else{  cart.innerHTML = ""; }
