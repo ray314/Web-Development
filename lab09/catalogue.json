@@ -1,7 +1,7 @@
 {
-    "catalogue": [
-        {"book":"Beginning ASP.NET with CSharp", "author":"Hart, Kauffman, Sussman, Ullman", "isbn":"0764588508", "price":"$39.99", "img":"begaspnet.jpg"},
-        {"book":"Agile Retrospectives", "author":"Derby, Larsen", "isbn":"123456789", "price":"$49.99", "img":"agile.jpg"},
-        {"book":"Oh the Places You'll Go", "author":"Dr. Seuss", "isbn":"7896541235", "price":"$29.99", "img":"seuss.jpg"}
-    ]
+    "book": ["Beginning ASP.NET with CSharp", "Agile Retrospectives", "Oh the Places You'll Go"],
+    "author": ["Hart, Kauffman, Sussman, Ullman", "Derby, Larsen", "Dr. Seuss"],
+    "isbn": ["0764588508", "123456789", "7896541235"],
+    "price": ["$39.99", "$49.99", "$29.99"],
+    "img": ["begaspnet.jpg", "agile.jpg", "seuss.jpg"]
 }

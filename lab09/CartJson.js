@@ -7,23 +7,26 @@ function getCatalogue() {
     xHRObject.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var catalogue = JSON.parse(this.responseText);
-            for (x in catalogue) {
-                let book = catalogue[x].book;
-                let author = catalogue[x].author;
-                let isbn = catalogue[x].isbn;
-                let price = catalogue[x].price;
-                let img = catalogue[x].img;
+            
+            //console.log(catalogue.book[0]);
+            for (i in catalogue.book) {
+                let book = catalogue.book[i];
+                let author = catalogue.author[i];
+                let isbn = catalogue.isbn[i];
+                let price = catalogue.price[i];
+                let img = catalogue.img[i];
                 // Using template literals
-                cataDiv.innerHTML = `
+                cataDiv.innerHTML += `
                 <br />
                 <img id="cover" src="${img}" />
                 <br />
-                <b>Book:</b><span id="book"> ${book}</span><br />
-                <b>Authors: </b><span id='authors'> ${author}</span>
-                <br /><b>ISBN: </b><span id="ISBN">${isbn}</span>
-                <br /><b>Price: </b><span id="price">${price}</span>
+                <b>Book:</b><span id="book${i}"> ${book}</span><br />
+                <b>Authors: </b><span id='authors${i}'> ${author}</span>
+                <br /><b>ISBN: </b><span id="ISBN${i}">${isbn}</span>
+                <br /><b>Price: </b><span id="price${i}">${price}</span>
                 <br /><br /> 
-                <a href="#" onclick="AddRemoveItem('Add');" >Add to Shopping Cart</a>
+                <a href="#" onclick="AddRemoveItem('Add', '${i}');" >Add to Shopping Cart</a>
+                <br>
                 `;
             }
         }
@@ -32,12 +35,12 @@ function getCatalogue() {
     
 }
 
-function AddRemoveItem(action)
+function AddRemoveItem(action, id)
 {
     var xHRObject = new XMLHttpRequest();
-    var book  = document.getElementById("book").innerHTML;
-    var isbn = document.getElementById("ISBN").innerHTML;
-    var cost = document.getElementById("price").innerHTML;
+    var book  = document.getElementById("book"+id).innerHTML;
+    var isbn = document.getElementById("ISBN"+id).innerHTML;
+    var cost = document.getElementById("price"+id).innerHTML;
     cost = Number(cost.replace(/[^0-9.-]+/g,"")); // Remove non digits/dots
 	xHRObject.open("GET", "test.php?action="+action+"&book="+book+"&isbn="+isbn+"&cost="+cost, true);
     xHRObject.onreadystatechange = function () {
