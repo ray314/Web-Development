@@ -35,30 +35,40 @@ function getCatalogue() {
     
 }
 
-function AddRemoveItem(action, id)
-{
+function AddRemoveItem(action, id) {
+    //var jsonObj = {"book":};
     var xHRObject = new XMLHttpRequest();
+    console.log(id);
     var book  = document.getElementById("book"+id).innerHTML;
     var isbn = document.getElementById("ISBN"+id).innerHTML;
     var cost = document.getElementById("price"+id).innerHTML;
     cost = Number(cost.replace(/[^0-9.-]+/g,"")); // Remove non digits/dots
-	xHRObject.open("GET", "test.php?action="+action+"&book="+book+"&isbn="+isbn+"&cost="+cost, true);
+	xHRObject.open("GET", "test.php?action="+action+"&book="+book+"&isbn="+isbn+"&cost="+cost+"&id="+id, true);
     xHRObject.onreadystatechange = function () {
         if ((this.readyState == 4) && (this.status == 200)) {
 		    var cart = document.getElementById("cart");
 		    if (this.responseText != "") {
                 console.log(this.responseText);
                 var myObj = JSON.parse(this.responseText);
+                cart.innerHTML = ""; // Refresh the cart
+                for (i in myObj.book) {
+                    // Display cart if value is greater than 0
+                    if (myObj.value[i] > 0) {
+                        cart.innerHTML += ` ${myObj.book[i]} <a href='#' onclick='AddRemoveItem("Remove", ${i});'>Remove Item</a><br>`;
+                        cart.innerHTML +=  ` ISBN: ${myObj.isbn[i]}<br>`;
+                        cart.innerHTML += ` Quantity: ${myObj.value[i]}<br>`;
+                        
+                    } else {
+                        // Else clear the cart
+                        cart.innerHTML = "";
+                    } 
+                }
+                if (myObj.totalCost > 0) {
+                    document.getElementById("total-cost").innerHTML = "Total: $"+myObj.totalCost;
+                } else {
+                    document.getElementById("total-cost").innerHTML = "";
+                }
                 
-                // Display cart if value is greater than 0
-                if (myObj.value > 0) {
-                    cart.innerHTML = " " + myObj.book + " " + "<a href='#' onclick='AddRemoveItem(\"Remove\");'>Remove Item</a>";
-                    cart.innerHTML += " Quantity: " + myObj.value + "<br>";
-                    cart.innerHTML += "Total: $"+myObj.totalCost;
-                } 
-            } else {
-                // Else clear the cart
-                cart.innerHTML = "";
             } 
         }
     };
