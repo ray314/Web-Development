@@ -66,17 +66,17 @@ function appendRow() {
 }
 
 function selectRow(row) {
-    var backgroundColor = tableRow.style.backgroundColor;
+    var backgroundColor = row.style.backgroundColor;
 
 	if (backgroundColor != 'yellow'){
-		tableRow.style.backgroundColor = "yellow";
+		row.style.backgroundColor = "yellow";
 	} else {
-		removeRow(tableRow)
+		removeRow(row)
 	}
 }
 
 //remove row if already highlighted
-function removeRow(tableRow) {
-	var index = tableRow.rowIndex;
+function removeRow(row) {
+	var index = row.rowIndex;
 	document.getElementById("tbl").deleteRow(index);
 }
