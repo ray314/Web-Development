@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="CartJson.js"></script>
+  <style> body { margin-left: 100px; } </style>
+</head>
+
+<body>
+  <br />
+  <img id="cover" src="begaspnet.jpg" />
+  <br />
+  <b>Book:</b><span id="book">Beginning ASP.NET with CSharp</span><br />
+  <b>Authors: </b><span id="authors"> Hart, Kauffman, Sussman, Ullman</span>
+  <br /><b>ISBN: </b><span id="ISBN" name="ispn">0764588508</span>
+  <br /><b>Price: </b><span id="price">$39.99</span>
+  <br />
+  <a href="#" onclick="AddRemoveItem('Add', 'Beginning ASP.NET with CSharp', '0764588508', '39.99');">Add to Shopping
+    Cart</a>
+  <br /><br /><br />
+
+  <img id="cover" src="agile.jpg" />
+  <br />
+  <b>Book:</b><span name="book" id="book">Agile Retrospectives</span><br />
+  <b>Author: </b><span id="authors"> Derby, Larsen</span>
+  <br /><b>ISBN: </b><span id="ISBN">123456789</span>
+  <br /><b>Price: </b><span id="price">$49.99</span>
+  <br />
+  <a href="#" onclick="AddRemoveItem('Add', 'Agile Retrospectives', '123456789', '49.99');">Add to Shopping Cart</a>
+  <br /><br /><br />
+
+  <img id="cover" src="seuss.jpg" />
+  <br />
+  <b>Book:</b><span name="book" id="book">Oh the Places Youll Go</span><br />
+  <b>Author: </b><span id="authors"> Dr. Seuss</span>
+  <br /><b>ISBN: </b><span id="ISBN">7896541235</span>
+  <br /><b>Price: </b><span id="price">$29.99</span>
+  <br />
+  <a href="#" onclick="AddRemoveItem('Add', 'Oh the Places Youll Go', '7896541235', '29.99');">Add to Shopping Cart</a>
+  <br /><br /><br />
+
+  SHOPPING CART<br>
+  <span id="cart"></span><br><br> 
+  <span id="cart1"></span><br><br> 
+  <span id="cart2"></span><br><br> 
+  <span id="cart3"></span>
+
+</body>
+
+</html>

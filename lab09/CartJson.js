@@ -1,4 +1,36 @@
-
+// Display the catalogue
+function getCatalogue() {
+    var cataDiv = document.getElementById("catalogue");
+    var xHRObject = new XMLHttpRequest();
+    xHRObject.open("GET", "catalogue.json");
+    //xHRObject.responseType = "json";
+    xHRObject.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var catalogue = JSON.parse(this.responseText);
+            for (x in catalogue) {
+                let book = catalogue[x].book;
+                let author = catalogue[x].author;
+                let isbn = catalogue[x].isbn;
+                let price = catalogue[x].price;
+                let img = catalogue[x].img;
+                // Using template literals
+                cataDiv.innerHTML = `
+                <br />
+                <img id="cover" src="${img}" />
+                <br />
+                <b>Book:</b><span id="book"> ${book}</span><br />
+                <b>Authors: </b><span id='authors'> ${author}</span>
+                <br /><b>ISBN: </b><span id="ISBN">${isbn}</span>
+                <br /><b>Price: </b><span id="price">${price}</span>
+                <br /><br /> 
+                <a href="#" onclick="AddRemoveItem('Add');" >Add to Shopping Cart</a>
+                `;
+            }
+        }
+    }
+    xHRObject.send();
+    
+}
 
 function AddRemoveItem(action)
 {
