@@ -45,10 +45,8 @@ else
 
 $_SESSION["Cart"] = $cart;
 
-//if ($cart->value[$id] != 0) {
-    echo json_encode($cart);
-//} else {
-//    echo "";
-//}
-		
+echo json_encode($cart);
+
+session_unset();
+session_destroy();
 ?>
