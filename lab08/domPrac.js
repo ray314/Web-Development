@@ -34,6 +34,20 @@ function makeTable(){
 	tBody.appendChild(newRow);
 }
 
+//add Event Listener to all rows
+function enableSelectRow() {
+	var theTable = document.getElementById("tbl");
+	if (theTable != null) {
+		for (var i = 0; i < theTable.rows.length; i++) {
+			var theTable = document.getElementById("tbl");
+			theTable.rows[i].addEventListener("click",  function () {
+					selectRow(this);
+					//getRowInfo(this);
+			});
+		}		
+	}
+}
+
 function appendRow() {
 	var table = document.getElementById("tbl");
 	var newRow = document.createElement("tr");
@@ -45,5 +59,24 @@ function appendRow() {
 	newRow.appendChild(newData[0]);
 	newRow.appendChild(newData[1]);
 	newRow.bgColor = "orange";
+	newRow.addEventListener("click", function () {
+		selectRow(this);
+	})
 	table.appendChild(newRow);
+}
+
+function selectRow(row) {
+    var backgroundColor = tableRow.style.backgroundColor;
+
+	if (backgroundColor != 'yellow'){
+		tableRow.style.backgroundColor = "yellow";
+	} else {
+		removeRow(tableRow)
+	}
+}
+
+//remove row if already highlighted
+function removeRow(tableRow) {
+	var index = tableRow.rowIndex;
+	document.getElementById("tbl").deleteRow(index);
 }

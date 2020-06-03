@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Adding New Elements</title>
+	<script src="domPrac.js">
+	</script>
+</head>
+<body onload="makeTable()">
+	<p>Subject Table</p><br>
+
+	<table id="tbl" style="border: 1px solid gray;">	</table>
+
+	<br>
+	<form>
+		<input type="button" value=" Append a new row " onclick="appendRow()"><br>
+	</form><br>
+	<input type="button" value=" Print words seperated by spaces " onclick="splitString()">
+	<div id="strings">
+	</div>
+	<br>
+	<input type="button" value=" Print database records " onclick="printRecords()">
+	<div id="records"></div>
+	<br>
+</body>
+</html>
