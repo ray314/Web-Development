@@ -62,7 +62,7 @@ function AddItem(id) {
                     row.insertCell(0).innerHTML = myObj.book[id];
                     row.insertCell(1).innerHTML = myObj.isbn[id];
                     row.insertCell(2).innerHTML = `<span id="${myObj.book[id]}">${myObj.value[id]}</span>`;
-                    row.insertCell(3).innerHTML = `${myObj.book[id]} <button class="btn btn-warning" onclick="removeItem('${row.rowIndex}', '${id}')">Remove Item</button><br>`;
+                    row.insertCell(3).innerHTML = `<button class="btn btn-warning" onclick="removeItem('${row.rowIndex}', '${id}')">Remove Item</button><br>`;
                 } else {
                     let cell = document.getElementById(myObj.book[id]);
                     cell.innerHTML = myObj.value[id];
@@ -116,7 +116,6 @@ function reset() {
     xHRObject.open("GET", "reset.php");
     xHRObject.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("cart").innerHTML = "";
             document.getElementById("total-cost").innerHTML = "";
         }
     }
