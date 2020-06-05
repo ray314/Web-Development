@@ -20,33 +20,24 @@ $cart->book[$id] = $_GET["book"];
 $cart->isbn[$id] = $_GET["isbn"];
 $action = $_GET["action"]; // Add or Remove
 $cart->cost[$id] = $_GET["cost"]; // Cost of book
-
 // If value set then do action
-if (isset($cart->value[$id]))
-{
-    if ($action == "Add")
-    {
-        $cart->value[$id]++;
-        $cart->totalCost += $cart->cost[$id];
-        // Round to 2 digits
-        $cart->totalCost = round($cart->totalCost, 2, PHP_ROUND_HALF_UP);
+if ($action == "Add") {
+    if (!isset($cart->value[$id])) {
+        $cart->value[$id] = 0;
     }
-    else if ($cart->value > 0)
-    {
-        $cart->value[$id]--;
-        $cart->totalCost -= $cart->cost[$id];
-        $cart->totalCost = round($cart->totalCost, 2, PHP_ROUND_HALF_UP);
-    }
-}
-else
-{
-    $cart->value[$id] = 1;
+    $cart->value[$id]++;
+        
+    $cart->totalCost += $cart->cost[$id];
+    // Round to 2 digits
+    $cart->totalCost = round($cart->totalCost, 2, PHP_ROUND_HALF_UP);
+} else if ($cart->value[$id] > 0) {
+    $cart->value[$id]--;
+    $cart->totalCost -= $cart->cost[$id];
+    $cart->totalCost = round($cart->totalCost, 2, PHP_ROUND_HALF_UP);
 }
 
 $_SESSION["Cart"] = $cart;
 
 echo json_encode($cart);
 
-session_unset();
-session_destroy();
 ?>

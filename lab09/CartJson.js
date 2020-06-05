@@ -25,7 +25,7 @@ function getCatalogue() {
                 <br /><b>ISBN: </b><span id="ISBN${i}">${isbn}</span>
                 <br /><b>Price: </b><span id="price${i}">${price}</span>
                 <br /><br /> 
-                <a href="#" onclick="AddRemoveItem('Add', '${i}');" >Add to Shopping Cart</a>
+                <button class="btn btn-primary" onclick="AddRemoveItem('Add', '${i}');" >Add to Shopping Cart</button>
                 <br>
                 `;
             }
@@ -38,7 +38,6 @@ function getCatalogue() {
 function AddRemoveItem(action, id) {
     //var jsonObj = {"book":};
     var xHRObject = new XMLHttpRequest();
-    console.log(id);
     var book  = document.getElementById("book"+id).innerHTML;
     var isbn = document.getElementById("ISBN"+id).innerHTML;
     var cost = document.getElementById("price"+id).innerHTML;
@@ -48,13 +47,17 @@ function AddRemoveItem(action, id) {
         if ((this.readyState == 4) && (this.status == 200)) {
 		    var cart = document.getElementById("cart");
 		    if (this.responseText != "") {
-                console.log(this.responseText);
+                //console.log(this.responseText);
                 var myObj = JSON.parse(this.responseText);
                 cart.innerHTML = ""; // Refresh the cart
                 for (i in myObj.book) {
+                    console.log(myObj.value[i]);
                     // Display cart if value is greater than 0
+                    // TODO: need to seperate elements into a table
+                    // use <tr id="id";
                     if (myObj.value[i] > 0) {
-                        cart.innerHTML += ` ${myObj.book[i]} <a href='#' onclick='AddRemoveItem("Remove", ${i});'>Remove Item</a><br>`;
+                        cart.a
+                        cart.innerHTML += ` ${myObj.book[i]} <button class="btn btn-warning" onclick='AddRemoveItem("Remove", ${i});'>Remove Item</button><br>`;
                         cart.innerHTML +=  ` ISBN: ${myObj.isbn[i]}<br>`;
                         cart.innerHTML += ` Quantity: ${myObj.value[i]}<br>`;
                         
@@ -73,6 +76,18 @@ function AddRemoveItem(action, id) {
         }
     };
     xHRObject.send();   
+}
+
+function reset() {
+    var xHRObject = new XMLHttpRequest();
+    xHRObject.open("GET", "reset.php");
+    xHRObject.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("cart").innerHTML = "";
+            document.getElementById("total-cost").innerHTML = "";
+        }
+    }
+    xHRObject.send();
 }
 
 
