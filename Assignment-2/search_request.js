@@ -5,6 +5,7 @@ function search() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var obj = JSON.parse(this.responseText); // Parse the JSON
+            table.innerHTML = ""; // Refresh the table
             
             for (data in obj) {
                 var row = table.insertRow(-1); // Insert at the last position
