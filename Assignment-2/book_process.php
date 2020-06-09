@@ -15,8 +15,8 @@ if ($conn->connect_error) {
     die();
 }
 // Write INSERT query
-$sql = "INSERT INTO `booking`(`Name`, `Phone`, `PickUp_Address`, `Dest_Suburb`, `PickUp_Date`, `Date_Booked`) 
-VALUES ('$name',$phone,'$pickup','$dest','$date','$date_booked')";
+$sql = "INSERT INTO `booking`(`Name`, `Phone`, `PickUp_Address`, `Dest_Suburb`, `PickUp_Date`, `Date_Booked`, status) 
+VALUES ('$name',$phone,'$pickup','$dest','$date','$date_booked', 'unassigned')";
 // Query the databse
 $result = $conn->query($sql);
 if ($result->error_get_last) {
