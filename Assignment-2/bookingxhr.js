@@ -32,6 +32,7 @@ function submit(e) {
     var destination_suburb = document.getElementById("destination-suburb").value;
     var date = document.getElementById("date").value;
     var time = document.getElementById("time").value;
+    time = timeConversionSlicker(time);
     xhttp.open("POST", "book_process.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.onreadystatechange = function () {
@@ -68,6 +69,19 @@ function getTimeList() {
         //    .attr('value', i)
         //    .text()); 
     }
+}
+// Convert 12 to 24 hour format
+function timeConversionSlicker(s) {
+    let AMPM = s.slice(-2);
+    let timeArr = s.slice(0, -2).split(":");
+    if (AMPM === "AM" && timeArr[0] === "12") {
+        // catching edge-case of 12AM
+        timeArr[0] = "00";
+    } else if (AMPM === "PM") {
+        // everything with PM can just be mod'd and added with 12 - the max will be 23
+        timeArr[0] = (timeArr[0] % 12) + 12
+    }  
+    return timeArr.join(":");
 }
 
 var form = document.getElementById("booking");
