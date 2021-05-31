@@ -6,9 +6,10 @@ Technologies used:
 * Bootstrap 5
 * JavaScript
 
-<b>Home page</b>
-![alt text](https://user-images.githubusercontent.com/12677108/120128976-41dd7180-c217-11eb-971f-902da560bd98.png)
+<h2>Home page</h2>
 This is the home page. User can click on the buttons to create a new status, load an existing status or about this page.
+![alt text](https://user-images.githubusercontent.com/12677108/120128976-41dd7180-c217-11eb-971f-902da560bd98.png)
+
 
 <h2>Status Posting System</h2>
 ![image](https://user-images.githubusercontent.com/12677108/120128915-25413980-c217-11eb-85d3-f29b9d47331c.png)
